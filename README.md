@@ -1,9 +1,12 @@
 # Стартовый шаблон "Maffin" для сборки проектов [![Dependency status][dependency-image]][dependency-url]
 
 <h2>Что входит<h2>
-  Gulp
-  SCSS
-  Stylelint
+  
+  <ul>
+    <li>Gulp</li>
+    <li>SCSS</li>
+    <li>Stylelint</li>
+  </ul>
   
 
 
