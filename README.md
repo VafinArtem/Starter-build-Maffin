@@ -1,4 +1,4 @@
-# Шаблон сборщика Maffin [![Dependency status][dependency-image]][dependency-url]
+# Стартовый шаблон "Maffin" для сборки проектов [![Dependency status][dependency-image]][dependency-url]
 Шаблон сборщика Maffin
 
 
