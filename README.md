@@ -1,5 +1,5 @@
-# Starter-build-Maffin [![Dependency status][dependency-image]][dependency-url]
-<h1>Шаблон сборщика Maffin</h1>
+# Шаблон сборщика Maffin [![Dependency status][dependency-image]][dependency-url]
+Шаблон сборщика Maffin
 
 
 [dependency-image]: https://david-dm.org/VafinArtem/Starter-build-Maffin/dev-status.svg?style=flat-square
