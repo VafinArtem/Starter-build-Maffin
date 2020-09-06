@@ -1,6 +1,6 @@
 # Стартовый шаблон "Maffin" для сборки проектов [![Dependency status][dependency-image]][dependency-url]
 
-<h2>Что входит<h2>
+<h2>Что входит</h2>
   
   <ul>
     <li>Gulp</li>
