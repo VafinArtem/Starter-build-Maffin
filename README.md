@@ -25,7 +25,6 @@
         mixin.scss                - SCSS миксины
       style.scss                - подключение стилей
     index.html                - дефолтная главная страница
-
 </pre>
 
 <h2>Установка</h2>
@@ -33,7 +32,6 @@
 <pre>
 
   npm i
-
 </pre>
 
 <h2>Запуск</h2>
@@ -41,7 +39,6 @@
 <pre>
 
   npm start
-
 </pre>  
 
 
