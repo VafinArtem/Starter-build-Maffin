@@ -1,5 +1,5 @@
 {
-  "name": "maffin_build_0_1",
+  "name": "maffin_build_0_2",
   "private": true,
   "description": "Сборка проектов Maffin 0.2",
   "devDependencies": {
@@ -21,7 +21,8 @@
     "gulp-uglify-es": "2.0.*",
     "gulp-webp": "4.0.*",
     "stylelint": "13.*.*",
-    "stylelint-config-htmlacademy": "0.1.*"
+    "stylelint-config-htmlacademy": "0.1.*",
+    "normalize-scss": "7.0.*"
   },
   "scripts": {
     "editorconfig": "editorconfig-cli",
