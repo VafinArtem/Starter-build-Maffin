@@ -1,7 +1,7 @@
 {
-  "name": "maffin_build_0_2",
+  "name": "maffin_build",
   "private": true,
-  "description": "Сборка проектов Maffin 0.2",
+  "description": "Сборка проектов Maffin",
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.*",
     "autoprefixer": "9.8.*",
