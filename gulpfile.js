@@ -105,7 +105,7 @@ exports.html = html;
 
 const js = () => {
   return gulp.src("source/js/*.js")
-    .pipe(rename("script.min.js"))
+    .pipe(concat("script.min.js"))
     .pipe(sourcemap.init())
     .pipe(uglify())
     .pipe(sourcemap.write("."))
