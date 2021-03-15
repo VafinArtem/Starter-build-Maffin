@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const webpack = require("webpack-stream");
 const plumber = require("gulp-plumber");
 const sourcemap = require("gulp-sourcemaps");
 const sass = require("gulp-sass");
@@ -105,10 +106,30 @@ exports.html = html;
 
 const js = () => {
   return gulp.src("source/js/*.js")
-    .pipe(concat("script.min.js"))
-    .pipe(sourcemap.init())
-    .pipe(uglify())
-    .pipe(sourcemap.write("."))
+    .pipe(
+      webpack({
+        mode: 'production',
+        module: {
+          rules: [
+            {
+                test: /.js$/,
+                exclude: /node_modules/,
+                use: {
+                loader: 'babel-loader',
+                query: {
+                  presets: ["@babel/env"]
+                }
+                },
+            }
+            ],
+        },
+        output: {
+          filename: 'bundle.js',
+        },
+        devtool: 'source-map',
+      })
+    )
+    .pipe(gulp.dest("build/js"))
     .pipe(gulp.dest("build/js"))
     .pipe(sync.stream());
 }
