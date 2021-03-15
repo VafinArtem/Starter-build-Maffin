@@ -4,6 +4,7 @@
   
   <ul>
     <li>Gulp</li>
+    <li>Webpack</li>
     <li>SCSS</li>
     <li>Stylelint</li>
   </ul>
