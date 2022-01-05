@@ -35,7 +35,7 @@ a {
   width: 100%;
   margin: 0 auto;
 
-  @include mobile {
+  @include mobile-max {
     padding-left: $mobile-padding;
     padding-right: $mobile-padding;
   }

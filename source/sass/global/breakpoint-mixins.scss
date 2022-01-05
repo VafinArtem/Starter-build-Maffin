@@ -1,5 +1,5 @@
-@mixin wide-width {
-  @media (min-width: ($desktop-width)) {
+@mixin wide {
+  @media (min-width: ($wide-width)) {
     @content;
   }
 }

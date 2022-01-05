@@ -1,9 +1,5 @@
-@import "../../node_modules/normalize-scss/sass/normalize.scss";
-@include normalize();
 @import "global/fonts.scss";
 @import "global/variables.scss";
 @import "global/mixin.scss";
 @import "global/breakpoint-mixins.scss";
 @import "global/global.scss";
-@import "blocks/container.scss";
-@import "blocks/visually-hidden.scss";
