@@ -13,7 +13,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", "Tahoma", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: normal;
   color: $basic-black;
@@ -22,10 +22,47 @@ body {
 }
 
 img {
+  display: flex;
   max-width: 100%;
   height: auto;
 }
 
 a {
   text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include mobile {
+    padding-left: $mobile-padding;
+    padding-right: $mobile-padding;
+  }
+
+  @include tablet {
+    padding-left: $tablet-padding;
+    padding-right: $tablet-padding;
+  }
+
+  @include desktop {
+    padding-left: $desktop-padding;
+    padding-right: $desktop-padding;
+  }
+
+  @include wide {
+    padding-left: $wide-padding;
+    padding-right: $wide-padding;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
