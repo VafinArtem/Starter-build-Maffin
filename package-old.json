@@ -1,0 +1,57 @@
+{
+  "name": "maffin_build",
+  "private": true,
+  "description": "Сборка проектов Maffin",
+  "devDependencies": {
+    "@babel/preset-env": "7.13.10",
+    "@htmlacademy/editorconfig-cli": "1.*",
+    "autoprefixer": "10.0.*",
+    "babel-core": "6.26.3",
+    "babel-loader": "8.2.2",
+    "browser-sync": "2.26.*",
+    "del": "6.0.*",
+    "gulp": "4.0.*",
+    "gulp-csso": "4.0.*",
+    "gulp-htmlmin": "5.0.*",
+    "gulp-imagemin": "7.1.*",
+    "gulp-plumber": "1.2.*",
+    "gulp-postcss": "9.*.*",
+    "gulp-rename": "2.0.*",
+    "gulp-resolve-url": "0.0.*",
+    "gulp-sass": "4.1.*",
+    "gulp-sourcemaps": "2.6.*",
+    "gulp-svgstore": "7.0.*",
+    "gulp-uglify-es": "2.0.*",
+    "gulp-webp": "4.0.*",
+    "stylelint": "13.*",
+    "stylelint-config-htmlacademy": "0.1.*",
+    "normalize-scss": "7.0.*",
+    "webpack-stream": "6.1.2"
+  },
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
+    "test": "npm run editorconfig && npm run stylelint",
+    "build": "gulp build",
+    "start": "gulp"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/sass/**/*.scss"
+  ],
+  "engines": {
+    "node": "12.18.3"
+  },
+  "dependencies": {
+    "postcss": "8.2.*"
+  }
+}
