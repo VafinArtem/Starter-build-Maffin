@@ -18,6 +18,8 @@ const typograf = require(`gulp-typograf`);
 const webpack = require(`webpack-stream`);
 const webpackConfig = require(`./webpack.config.js`);
 
+const imagemin = require(`gulp-imagemin`);
+
 // paths
 const mainFolders = {
   source: `./sources`,
@@ -31,6 +33,8 @@ const paths = {
   buildJs: `${mainFolders.build}/js`,
   sourceHtml: `${mainFolders.source}/html/**/*.html`,
   buildHtml: `${mainFolders.build}`,
+  sourceImages: `${mainFolders.source}/img/**/*.{jpg,png,svg}`,
+  buildImages: `${mainFolders.build}/img`,
 };
 
 // Styles
@@ -91,5 +95,27 @@ const html = () => {
 };
 
 exports.html = html;
+
+// Images
+const images = () => {
+  return gulp
+    .src(paths.sourceImages)
+    .pipe(
+      imagemin([
+        imagemin.optipng({ optimizationLevel: 3 }),
+        imagemin.mozjpeg({ quality: 90, progressive: true }),
+        imagemin.svgo({
+          plugins: [
+            {
+              removeDimensions: true,
+            },
+          ],
+        }),
+      ])
+    )
+    .pipe(gulp.dest(paths.buildImages));
+};
+
+exports.images = images;
 
 exports.default = gulp.series(styles, scripts, html);

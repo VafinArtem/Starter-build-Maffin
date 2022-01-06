@@ -1,3 +1,5 @@
+const isProduction = false;
+
 module.exports = {
   mode: isProduction ? "production" : "development",
   output: {
