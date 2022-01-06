@@ -21,10 +21,14 @@
   },
   "homepage": "https://github.com/VafinArtem/Starter-build-Maffin#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
     "autoprefixer": "^10.4.1",
+    "babel-loader": "^8.2.3",
     "gulp": "^4.0.2",
     "gulp-csso": "^4.0.1",
     "gulp-file-include": "^2.3.0",
+    "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
@@ -32,6 +36,8 @@
     "gulp-typograf": "^4.0.3",
     "normalize-scss": "^7.0.1",
     "postcss": "^8.4.5",
-    "sass": "^1.45.2"
+    "sass": "^1.45.2",
+    "webpack": "^5.65.0",
+    "webpack-stream": "^7.0.0"
   }
 }
