@@ -18,10 +18,25 @@ const typograf = require(`gulp-typograf`);
 const webpack = require(`webpack-stream`);
 const webpackConfig = require(`./webpack.config.js`);
 
+// paths
+const mainFolders = {
+  source: `./sources`,
+  build: `./build`,
+};
+
+const paths = {
+  sourceStyles: `${mainFolders.source}/sass/style.scss`,
+  buildStyles: `${mainFolders.build}/css`,
+  sourceJs: `${mainFolders.source}/js/main.js`,
+  buildJs: `${mainFolders.build}/js`,
+  sourceHtml: `${mainFolders.source}/html/**/*.html`,
+  buildHtml: `${mainFolders.build}`,
+};
+
 // Styles
 const styles = () => {
   return gulp
-    .src(`source/sass/style.scss`, { sourcemaps: true })
+    .src(paths.sourceStyles, { sourcemaps: true })
     .pipe(
       plumber(
         notify.onError({
@@ -34,7 +49,7 @@ const styles = () => {
     .pipe(postcss([autoprefixer()]))
     .pipe(csso())
     .pipe(rename(`styles.min.css`))
-    .pipe(gulp.dest(`./build/css`, { sourcemaps: `.` }));
+    .pipe(gulp.dest(paths.buildStyles, { sourcemaps: `.` }));
 };
 
 exports.styles = styles;
@@ -42,7 +57,7 @@ exports.styles = styles;
 // Scripts
 const scripts = () => {
   return gulp
-    .src(`source/js/main.js`)
+    .src(paths.sourceJs)
     .pipe(
       plumber(
         notify.onError({
@@ -52,7 +67,7 @@ const scripts = () => {
       )
     )
     .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest(`./build/js`));
+    .pipe(gulp.dest(paths.buildJs));
 };
 
 exports.scripts = scripts;
@@ -60,7 +75,7 @@ exports.scripts = scripts;
 // Html
 const html = () => {
   return gulp
-    .src(`source/html/**/*.html`)
+    .src(paths.sourceHtml)
     .pipe(
       fileInclude({
         prefix: `@@`,
@@ -72,7 +87,7 @@ const html = () => {
         locale: [`ru`, `en-US`],
       })
     )
-    .pipe(gulp.dest(`./build`));
+    .pipe(gulp.dest(paths.buildHtml));
 };
 
 exports.html = html;
