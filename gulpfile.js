@@ -21,9 +21,12 @@ const webpackConfig = require(`./webpack.config.js`);
 const imagemin = require(`gulp-imagemin`);
 const webp = require(`gulp-webp`);
 
+const svgstore = require(`gulp-svgstore`);
+const cheerio = require(`gulp-cheerio`);
+
 // paths
 const mainFolders = {
-  source: `./sources`,
+  source: `./source`,
   build: `./build`,
 };
 
@@ -40,6 +43,8 @@ const paths = {
   buildWebp: `${mainFolders.build}/img`,
   sourceResources: `${mainFolders.source}/resources/**`,
   buildResources: `${mainFolders.build}`,
+  sourceSprite: `${mainFolders.source}/img/svg/icon-*.svg`,
+  buildSprite: `${mainFolders.build}/img`,
 };
 
 // Styles
@@ -132,6 +137,25 @@ const webpImages = () => {
 };
 
 exports.webp = webpImages;
+
+// Sprite
+const sprite = () => {
+  return gulp
+    .src(paths.sourceSprite)
+    .pipe(svgstore({ inlineSvg: true }))
+    .pipe(
+      cheerio({
+        run: ($) => {
+          $(`symbol`).attr(`fill`, `none`);
+        },
+        parserOptions: { xmlMode: true },
+      })
+    )
+    .pipe(rename(`sprite.svg`))
+    .pipe(gulp.dest(paths.buildSprite));
+};
+
+exports.sprite = sprite;
 
 // Resources
 const resources = () => {
