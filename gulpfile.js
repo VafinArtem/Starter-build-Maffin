@@ -159,7 +159,7 @@ exports.sprite = sprite;
 
 // Resources
 const resources = () => {
-  return src(`${paths.resourcesFolder}/**`).pipe(dest(paths.buildResources));
+  return gulp.src(paths.sourceResources).pipe(gulp.dest(paths.buildResources));
 };
 
 exports.resources = resources;
