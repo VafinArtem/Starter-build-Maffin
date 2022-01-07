@@ -19,6 +19,7 @@ const webpack = require(`webpack-stream`);
 const webpackConfig = require(`./webpack.config.js`);
 
 const imagemin = require(`gulp-imagemin`);
+const webp = require(`gulp-webp`);
 
 // paths
 const mainFolders = {
@@ -35,6 +36,8 @@ const paths = {
   buildHtml: `${mainFolders.build}`,
   sourceImages: `${mainFolders.source}/img/**/*.{jpg,png,svg}`,
   buildImages: `${mainFolders.build}/img`,
+  sourceWebp: `${mainFolders.build}/img/**/*.{jpg,png}`,
+  buildWebp: `${mainFolders.build}/img`,
 };
 
 // Styles
@@ -117,5 +120,15 @@ const images = () => {
 };
 
 exports.images = images;
+
+// Webp
+const webpImages = () => {
+  return gulp
+    .src(paths.sourceWebp)
+    .pipe(webp({ quality: 90 }))
+    .pipe(gulp.dest(paths.buildWebp));
+};
+
+exports.webp = webpImages;
 
 exports.default = gulp.series(styles, scripts, html);
