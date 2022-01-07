@@ -38,6 +38,8 @@ const paths = {
   buildImages: `${mainFolders.build}/img`,
   sourceWebp: `${mainFolders.build}/img/**/*.{jpg,png}`,
   buildWebp: `${mainFolders.build}/img`,
+  sourceResources: `${mainFolders.source}/resources/**`,
+  buildResources: `${mainFolders.build}`,
 };
 
 // Styles
@@ -130,5 +132,12 @@ const webpImages = () => {
 };
 
 exports.webp = webpImages;
+
+// Resources
+const resources = () => {
+  return src(`${paths.resourcesFolder}/**`).pipe(dest(paths.buildResources));
+};
+
+exports.resources = resources;
 
 exports.default = gulp.series(styles, scripts, html);
