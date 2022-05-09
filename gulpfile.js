@@ -24,6 +24,8 @@ const webp = require(`gulp-webp`);
 const svgstore = require(`gulp-svgstore`);
 const cheerio = require(`gulp-cheerio`);
 
+const sync = require('browser-sync').create();
+
 // paths
 const mainFolders = {
   source: `./source`,
@@ -32,8 +34,10 @@ const mainFolders = {
 
 const paths = {
   sourceStyles: `${mainFolders.source}/sass/style.scss`,
+  sourceAllStyles: `${mainFolders.source}/sass/**/*.scss`,
   buildStyles: `${mainFolders.build}/css`,
   sourceJs: `${mainFolders.source}/js/main.js`,
+  sourceAllJs: `${mainFolders.source}/js/**/*.js`,
   buildJs: `${mainFolders.build}/js`,
   sourceHtml: `${mainFolders.source}/html/**/*.html`,
   buildHtml: `${mainFolders.build}`,
@@ -164,4 +168,28 @@ const resources = () => {
 
 exports.resources = resources;
 
-exports.default = gulp.series(styles, scripts, html);
+// Server
+
+const server = (done) => {
+  sync.init({
+    server: {
+      baseDir: mainFolders.build,
+    },
+    cors: true,
+    notify: false,
+    ui: false,
+  });
+  done();
+}
+
+exports.server = server;
+
+// Watchers
+
+const watcher = () => {
+  gulp.watch(paths.sourceAllStyles, styles);
+  gulp.watch(paths.sourceAllJs, scripts);
+  gulp.watch(paths.sourceHtml, html);
+}
+
+exports.default = gulp.series(styles, scripts, html, server, watcher);

@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
     "start": "gulp"
   },
   "repository": {
@@ -25,6 +26,7 @@
     "@babel/preset-env": "^7.16.7",
     "autoprefixer": "^10.4.1",
     "babel-loader": "^8.2.3",
+    "browser-sync": "2.27.9",
     "gulp": "^4.0.2",
     "gulp-cheerio": "^1.0.0",
     "gulp-csso": "^4.0.1",
